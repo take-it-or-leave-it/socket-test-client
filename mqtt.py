@@ -3,13 +3,19 @@ from datetime import datetime
 import pika
 import time
 
-
-HOST_NAME = "localhost"
+HOST_NAME = "192.168.238.233"
 QUEUE_NAME = "hello.queue"
 
+user_credentials = pika.PlainCredentials('rasp', '1234')
 
 def main():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host=HOST_NAME))
+    connection = pika.BlockingConnection(
+        pika.ConnectionParameters(
+            host=HOST_NAME,
+            credentials=user_credentials
+            )
+
+        )
     channel = connection.channel()
 
     channel.queue_declare(queue=QUEUE_NAME)

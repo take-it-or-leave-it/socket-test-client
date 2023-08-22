@@ -12,7 +12,7 @@ import asyncio
 async def connect():
   # 웹 소켓에 접속을 합니다.
   print("In")
-  async with websockets.connect("ws://localhost:5000/gps") as websocket:
+  async with websockets.connect("ws://192.168.238.233:5000/gps") as websocket:
         # 클라이언트로부터 메시지를 대기한다.
         # text = input("Input: ")
         # 클라인언트로 echo를 붙여서 재 전송한다.
